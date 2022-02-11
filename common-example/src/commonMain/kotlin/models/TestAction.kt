@@ -1,0 +1,4 @@
+package models
+
+class TestAction {
+}
