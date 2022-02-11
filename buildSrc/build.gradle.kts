@@ -15,6 +15,7 @@ dependencies {
     implementation(Dependencies.JetBrains.Compose.gradlePlugin)
     implementation(Dependencies.JetBrains.Kotlin.gradlePlugin)
     implementation(Dependencies.Android.Tools.Build.gradlePlugin)
+    implementation("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.20")
 }
 
 val rootDirProject = file("../")

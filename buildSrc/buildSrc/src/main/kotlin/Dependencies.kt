@@ -1,5 +1,7 @@
 object Dependencies {
 
+    const val version = "0.1"
+
     object JetBrains {
         object Kotlin {
             // __KOTLIN_COMPOSE_VERSION__

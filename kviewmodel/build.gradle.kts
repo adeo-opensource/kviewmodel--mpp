@@ -1,10 +1,12 @@
 plugins {
     id("multiplatform-setup")
     id("android-setup")
+    id("maven-publish")
+    id("artifactory.publication")
 }
 
 group = "adeo.kviewmodel"
-version = "0.1"
+version = Dependencies.version
 
 kotlin {
     android {
