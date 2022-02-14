@@ -72,17 +72,12 @@ afterEvaluate {
                     setProperty("maven", true)
                 })
 
-                defaults(delegateClosureOf<groovy.lang.GroovyObject> {
-                    invokeMethod(
-                        "publications", arrayOf(
-                            "androidDebug",
-                            "androidRelease",
-                            "desktop",
-                            "kotlinMultiplatform",
-                            "metadata"
-                        )
+                defaults {
+                    setPublishArtifacts(true)
+                    publications(
+                        "androidDebug", "androidRelease", "desktop", "kotlinMultiplatform"
                     )
-                })
+                }
             })
         }
     }

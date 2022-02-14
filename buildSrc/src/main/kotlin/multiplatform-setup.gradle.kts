@@ -9,18 +9,12 @@ plugins {
 kotlin {
     jvm("desktop")
     android()
-
-//    val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget = when {
-//        System.getenv("SDK_NAME")?.startsWith("iphoneos") == true -> ::iosArm64
-//        else -> ::iosX64
-//    }
-//
-//    iosTarget("ios") { }
-
-    ios()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
-        named("commonTest") {
+        val commonMain by getting {
             dependencies {
                 implementation(Dependencies.JetBrains.Kotlin.testCommon)
                 implementation(Dependencies.JetBrains.Kotlin.testAnnotationsCommon)
@@ -31,6 +25,17 @@ kotlin {
             dependencies {
                 implementation(Dependencies.JetBrains.Kotlin.testJunit)
             }
+        }
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 

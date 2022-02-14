@@ -5,7 +5,7 @@ plugins {
     id("artifactory.publication")
 }
 
-group = "adeo.kviewmodel"
+group = "ru.leroymerlin.mpp"
 version = Dependencies.version
 
 kotlin {

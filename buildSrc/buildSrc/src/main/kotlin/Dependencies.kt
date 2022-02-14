@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val version = "0.1"
+    const val version = "0.2"
 
     object JetBrains {
         object Kotlin {
@@ -12,7 +12,7 @@ object Dependencies {
             const val testAnnotationsCommon =
                 "org.jetbrains.kotlin:kotlin-test-annotations-common:$VERSION"
 
-            private const val coroutinesVersion = "1.5.1-native-mt"
+            private const val coroutinesVersion = "1.6.0-native-mt"
             const val coroutines =
                 "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
         }

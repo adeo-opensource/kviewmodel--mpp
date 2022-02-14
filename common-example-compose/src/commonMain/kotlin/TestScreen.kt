@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import models.TestEvent
-import models.TestViewState
+import test.models.TestEvent
+import test.models.TestViewState
 
 @Composable
 fun TestScreen() {
