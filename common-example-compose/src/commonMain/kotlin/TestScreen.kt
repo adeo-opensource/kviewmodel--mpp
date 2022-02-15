@@ -7,6 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import ru.leroymerlin.mpp.compose.ViewModel
+import ru.leroymerlin.mpp.compose.observeAsState
+import test.TestViewModel
 import test.models.TestEvent
 import test.models.TestViewState
 

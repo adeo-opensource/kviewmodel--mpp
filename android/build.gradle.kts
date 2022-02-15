@@ -30,6 +30,7 @@ dependencies {
     implementation(compose.material)
 
     implementation(project(":common-example"))
+    implementation(project(":common-example-compose"))
     implementation(Dependencies.AndroidX.AppCompat.appCompat)
     implementation(Dependencies.AndroidX.Activity.activityCompose)
 }
