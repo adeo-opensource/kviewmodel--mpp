@@ -1,4 +1,4 @@
-#KViewModel
+# KViewModel
 
 KViewModel it's a lightweight library for MVVM or MVI pattern. 
 Works with Jetpack Compose, XML, UIKit. 
@@ -8,14 +8,16 @@ Works with Kotlin Multiplatform and Compose Multiplatform!
 ### Implementation
 
 Kotlin DSL
-`implementation("ru.leroymerlin.mpp:kviewmodel:0.2") // Core functions`
-
-`implementation("ru.leroymerlin.mpp:kviewmodel-compose:0.2") // Compose extensions`
+```kotlin
+implementation("ru.leroymerlin.mpp:kviewmodel:0.2") // Core functions
+implementation("ru.leroymerlin.mpp:kviewmodel-compose:0.2") // Compose extensions
+```
 
 Groovy
-`implementation "ru.leroymerlin.mpp:kviewmodel:0.2" // Core functions`
-
-`implementation "ru.leroymerlin.mpp:kviewmodel-compose:0.2" // Compose extensions`
+```groovy
+implementation "ru.leroymerlin.mpp:kviewmodel:0.2" // Core functions
+implementation "ru.leroymerlin.mpp:kviewmodel-compose:0.2" // Compose extensions
+```
 
 ### How to use
 
