@@ -9,14 +9,8 @@ Works with Kotlin Multiplatform and Compose Multiplatform!
 
 Kotlin DSL
 ```kotlin
-implementation("ru.leroymerlin.mpp:kviewmodel:0.2") // Core functions
+implementation("ru.leroymerlin.mpp:kviewmodel:0.3.0") // Core functions
 implementation("ru.leroymerlin.mpp:kviewmodel-compose:0.2") // Compose extensions
-```
-
-Groovy
-```groovy
-implementation "ru.leroymerlin.mpp:kviewmodel:0.2" // Core functions
-implementation "ru.leroymerlin.mpp:kviewmodel-compose:0.2" // Compose extensions
 ```
 
 ### How to use

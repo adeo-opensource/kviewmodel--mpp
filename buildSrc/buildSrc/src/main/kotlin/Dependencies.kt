@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val version = "0.2"
+    const val version = "0.3.0"
 
     object JetBrains {
         object Kotlin {
