@@ -1,6 +1,3 @@
-import org.gradle.api.tasks.bundling.Jar
-import org.gradle.kotlin.dsl.`maven-publish`
-import org.gradle.kotlin.dsl.signing
 import org.jetbrains.kotlin.konan.properties.Properties
 
 plugins {
@@ -74,9 +71,7 @@ afterEvaluate {
 
                 defaults {
                     setPublishArtifacts(true)
-                    publications(
-                        "androidDebug", "androidRelease", "desktop", "kotlinMultiplatform", "uikitX64", "uikitArm64"
-                    )
+                    publications(*publishing.publications.map { it.name }.toTypedArray())
                 }
             })
         }
