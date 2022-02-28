@@ -75,7 +75,7 @@ afterEvaluate {
                 defaults {
                     setPublishArtifacts(true)
                     publications(
-                        "androidDebug", "androidRelease", "desktop", "kotlinMultiplatform"
+                        "androidDebug", "androidRelease", "desktop", "kotlinMultiplatform", "uikitX64", "uikitArm64"
                     )
                 }
             })
