@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-setup")
+    id("multiplatform-compose-setup")
     id("android-setup")
     kotlin("native.cocoapods")
 }
@@ -27,7 +27,7 @@ kotlin {
             }
         }
 
-        val iosMain by getting {
+        val uikitMain by getting {
             dependencies {
                 api(project(":kviewmodel"))
             }

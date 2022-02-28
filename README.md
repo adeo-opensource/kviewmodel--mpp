@@ -1,30 +1,49 @@
-#KViewModel
+# KViewModel
 
-KViewModel it's a lightweight library for MVVM or MVI pattern. 
-Works with Jetpack Compose, XML, UIKit. 
+KViewModel it's a lightweight library for MVVM or MVI pattern. Works with Jetpack Compose, XML, UIKit.
 
 Works with Kotlin Multiplatform and Compose Multiplatform!
 
 ### Implementation
 
 Kotlin DSL
-`implementation("ru.leroymerlin.mpp:kviewmodel:0.2") // Core functions`
 
-`implementation("ru.leroymerlin.mpp:kviewmodel-compose:0.2") // Compose extensions`
+```kotlin
+// Project setup
+allprojects {
+    repositories {
+        url("https://art.lmru.tech:443/generic-release-mobile-customer-android/")
+        url("https://art.lmru.tech:443/generic-local-mobile-customer-android/")
+    }
+}
 
-Groovy
-`implementation "ru.leroymerlin.mpp:kviewmodel:0.2" // Core functions`
+// Module setup
+implementation("ru.leroymerlin.mpp:kviewmodel:0.4") // Core functions
+implementation("ru.leroymerlin.mpp:kviewmodel-compose:0.4") // Compose extensions
+```
 
-`implementation "ru.leroymerlin.mpp:kviewmodel-compose:0.2" // Compose extensions`
+```groovy
+allprojects {
+    repositories {
+        url "https://art.lmru.tech:443/generic-release-mobile-customer-android/"
+        url "https://art.lmru.tech:443/generic-local-mobile-customer-android/"
+    }
+}
+
+implementation "ru.leroymerlin.mpp:kviewmodel:0.4" // Core functions
+implementation "ru.leroymerlin.mpp:kviewmodel-compose:0.4" // Compose extensions
+```
 
 ### How to use
 
 #### Common Code
+
 ```kotlin
-class TestViewModel: BaseSharedViewModel<TestViewState, TestAction, TestEvent>()
+class TestViewModel : BaseSharedViewModel<TestViewState, TestAction, TestEvent>()
 ```
 
 Events - for user interaction
+
 ```kotlin
 sealed class TestEvent {
     object Launch : TestEvent()
@@ -34,6 +53,7 @@ sealed class TestEvent {
 ```
 
 Actions - single action from view model like show snackbar or navigation
+
 ```kotlin
 sealed class TestAction {
     object OpenDetail : TestAction()
@@ -41,6 +61,7 @@ sealed class TestAction {
 ```
 
 ViewState - your current screen state (fields, loaders, etc)
+
 ```kotlin
 data class TestViewState(
     val someValue: Int = 0,
@@ -49,17 +70,19 @@ data class TestViewState(
 ```
 
 #### Compose Multiplatform
+
 ```kotlin
 ViewModel(factory = { TestViewModel() }) { viewModel ->
     val viewState = viewModel.viewStates().observeAsState()
     val viewAction = viewModel.viewActions().observeAsState()
-    
+
     viewState.value?.let { state -> }
     viewAction.value?.let { action -> }
 }
 ```
 
-#### iOS 
+#### iOS
+
 ```
 // ViewState
 testViewModel.viewStates().watch { [weak self] viewState in
