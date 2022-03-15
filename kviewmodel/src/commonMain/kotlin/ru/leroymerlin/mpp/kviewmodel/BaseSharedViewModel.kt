@@ -1,35 +1,23 @@
 package ru.leroymerlin.mpp.kviewmodel
 
 import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.*
 
-class ViewModelNotInitializedException(override val message: String?) : Exception()
+public abstract class BaseSharedViewModel<State, Action, Event>(initialState: State) : KViewModel() {
 
-abstract class BaseSharedViewModel<State, Action, Event> : KViewModel() {
+    private val _viewStates = MutableStateFlow(initialState)
 
-    private val TAG = BaseSharedViewModel::class.simpleName
-    private val _viewStates: MutableStateFlow<State?> = MutableStateFlow(null)
-    fun viewStates(): CFlow<State?> = _viewStates.wrap()
+    private val _viewActions = MutableSharedFlow<Action?>(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+
+    public fun viewStates(): StateFlow<State> = _viewStates.asStateFlow()
+
+    public fun viewActions(): SharedFlow<Action?> = _viewActions.asSharedFlow()
 
     protected var viewState: State
         get() = _viewStates.value
-            ?: throw ViewModelNotInitializedException("\"viewState\" was queried before being initialized")
         set(value) {
-            /** StateFlow doesn't work with same values */
-            if (_viewStates.value == value) {
-                _viewStates.value = null
-            }
-
             _viewStates.value = value
         }
-
-    private val _viewActions: MutableSharedFlow<Action?> = MutableSharedFlow(
-        replay = 1,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST
-    )
-
-    fun viewActions(): CFlow<Action?> = _viewActions.wrap()
 
     protected var viewAction: Action?
         get() = _viewActions.replayCache.last()
@@ -37,6 +25,6 @@ abstract class BaseSharedViewModel<State, Action, Event> : KViewModel() {
             _viewActions.tryEmit(value)
         }
 
-    abstract fun obtainEvent(viewEvent: Event)
+    public abstract fun obtainEvent(viewEvent: Event)
 
 }
