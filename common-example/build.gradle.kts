@@ -23,7 +23,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":kviewmodel"))
-                implementation(Dependencies.JetBrains.Kotlin.coroutines)
+                implementation(Dependencies.JetBrains.Coroutines.core)
             }
         }
 

@@ -1,4 +1,4 @@
-package com.adeo.kviewmodel_demo
+package ru.leroymerlin.mpp.kviewmodel_demo
 
 import TestScreen
 import android.os.Bundle

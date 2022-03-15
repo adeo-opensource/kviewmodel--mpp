@@ -1,4 +1,4 @@
-package ru.leroymerlin.mpp.`odyssey-demo`
+package ru.leroymerlin.mpp.kviewmodel_demo
 
 import javax.swing.JFrame
 import javax.swing.SwingUtilities

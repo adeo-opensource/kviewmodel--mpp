@@ -16,8 +16,12 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(Dependencies.JetBrains.Kotlin.coroutines)
+                implementation(Dependencies.JetBrains.Coroutines.core)
             }
         }
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.freeCompilerArgs += "-Xexplicit-api=strict"
     }
 }
