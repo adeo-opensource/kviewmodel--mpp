@@ -1,0 +1,16 @@
+PODS:
+  - common_example (0.2)
+
+DEPENDENCIES:
+  - common_example (from `../../common-example`)
+
+EXTERNAL SOURCES:
+  common_example:
+    :path: "../../common-example"
+
+SPEC CHECKSUMS:
+  common_example: 7299f4ab33550d309d45bb8c2b92597b60836ee3
+
+PODFILE CHECKSUM: 3cce0f24f1b9dd6f18eb1a4aa2addd0b4c4cd7fa
+
+COCOAPODS: 1.11.2
