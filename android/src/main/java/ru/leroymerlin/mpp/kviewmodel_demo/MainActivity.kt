@@ -1,6 +1,6 @@
 package ru.leroymerlin.mpp.kviewmodel_demo
 
-import TestScreen
+import test.TestScreen
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity

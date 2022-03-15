@@ -5,19 +5,12 @@ import detail.models.DetailEvent
 import detail.models.DetailViewState
 import ru.leroymerlin.mpp.kviewmodel.BaseSharedViewModel
 
-class DetailViewModel: BaseSharedViewModel<DetailViewState, DetailAction, DetailEvent>() {
-
-    init {
-        viewState = DetailViewState()
-    }
+class DetailViewModel(param: Int) : BaseSharedViewModel<DetailViewState, DetailAction, DetailEvent>(
+    DetailViewState(text = "Got $param")
+) {
 
     override fun obtainEvent(viewEvent: DetailEvent) {
-        when (viewEvent) {
-            DetailEvent.Launch -> showText()
-        }
+
     }
 
-    private fun showText() {
-        viewState = DetailViewState(testData = "Hello, Launch")
-    }
 }

@@ -1,7 +1,6 @@
 package test.models
 
 sealed class TestEvent {
-    object Launch : TestEvent()
-    object OpenDetail : TestEvent()
+    data class DetailClick(val param: Int) : TestEvent()
     data class EventWithParam(val value: Int) : TestEvent()
 }
