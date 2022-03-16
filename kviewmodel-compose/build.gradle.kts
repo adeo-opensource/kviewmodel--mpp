@@ -10,13 +10,13 @@ version = Dependencies.version
 
 kotlin {
     android {
-        publishLibraryVariants("release", "debug")
+        publishAllLibraryVariants()
     }
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":kviewmodel"))
+                api(project(":kviewmodel"))
             }
         }
     }

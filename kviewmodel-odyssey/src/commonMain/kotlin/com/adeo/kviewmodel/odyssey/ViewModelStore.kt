@@ -6,7 +6,7 @@ import com.adeo.kviewmodel.KViewModel
 public object ViewModelStore {
 
     @PublishedApi
-    internal val viewModels = ConcurrentHashMap<String, KViewModel>()
+    internal val viewModels: MutableMap<String, KViewModel> = ConcurrentHashMap()
 
     @PublishedApi
     internal inline fun <reified T : KViewModel> getOrPut(

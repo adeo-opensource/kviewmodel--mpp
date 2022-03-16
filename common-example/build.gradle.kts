@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-compose-setup")
+    id("multiplatform-setup")
     id("android-setup")
     kotlin("native.cocoapods")
 }
@@ -13,7 +13,7 @@ kotlin {
         ios.deploymentTarget = "14.0"
 
         framework {
-            transitiveExport = true
+            transitiveExport = false
             baseName = "KViewModelShared"
             export(project(":kviewmodel"))
         }

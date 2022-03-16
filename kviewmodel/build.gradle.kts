@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-compose-setup")
+    id("multiplatform-setup")
     id("android-setup")
     id("maven-publish")
     id("convention.publication")
@@ -10,7 +10,7 @@ version = Dependencies.version
 
 kotlin {
     android {
-        publishLibraryVariants("release", "debug")
+        publishAllLibraryVariants()
     }
 
     sourceSets {
