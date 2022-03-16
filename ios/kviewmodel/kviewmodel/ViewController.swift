@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  kviewmodel
-//
-//  Created by Алексей Гладков on 14.02.2022.
-//
-
 import UIKit
 import KViewModelShared
 
@@ -17,7 +10,29 @@ class ViewController: UIViewController {
         return titleView
     }()
     
-    private lazy var buttonView: UIButton = {
+    private lazy var counterView: UILabel = {
+        let counterView = UILabel()
+        counterView.font = .systemFont(ofSize: 26)
+        return counterView
+    }()
+    
+    private lazy var decrementButtonView: UIButton = {
+        let buttonView = UIButton()
+        buttonView.setTitle("-", for: .normal)
+        buttonView.setTitleColor(.blue, for: .normal)
+        buttonView.addTarget(self, action: #selector(decrementTap), for: .touchUpInside)
+        return buttonView
+    }()
+    
+    private lazy var incrementButtonView: UIButton = {
+        let buttonView = UIButton()
+        buttonView.setTitle("+", for: .normal)
+        buttonView.setTitleColor(.blue, for: .normal)
+        buttonView.addTarget(self, action: #selector(incrementTap), for: .touchUpInside)
+        return buttonView
+    }()
+    
+    private lazy var detailButtonView: UIButton = {
         let buttonView = UIButton()
         buttonView.setTitle("Open Detail", for: .normal)
         buttonView.setTitleColor(.blue, for: .normal)
@@ -27,54 +42,70 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         renderUI()
         
         testViewModel.viewStates().watch { [weak self] viewState in
-            guard let self = self, let viewState = viewState else { return }
+            guard let self = self else { return }
             
-            self.titleView.text = viewState.someText
+            self.titleView.text = viewState.titleText
+            self.counterView.text = String(viewState.counter)
         }
         
         testViewModel.viewActions().watch { [weak self] viewAction in
             guard let self = self, let viewAction = viewAction else { return }
             
             switch viewAction {
-            case _ as TestAction.OpenDetail:
-                self.presentDetail()
-                
-            default:
-                break
+                case let args as TestAction.OpenDetail: self.presentDetail(param: args.param)
+                default: break
             }
         }
-        
-        testViewModel.obtainEvent(viewEvent: TestEvent.Launch())
     }
     
     private func renderUI() {
         view.addSubview(titleView)
-        view.addSubview(buttonView)
+        view.addSubview(counterView)
+        view.addSubview(incrementButtonView)
+        view.addSubview(decrementButtonView)
+        view.addSubview(detailButtonView)
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
-        titleView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
         titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-        titleView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        titleView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        buttonView.translatesAutoresizingMaskIntoConstraints = false
-        buttonView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        buttonView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
-        buttonView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 16).isActive = true
-        buttonView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        counterView.translatesAutoresizingMaskIntoConstraints = false
+        counterView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        counterView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        decrementButtonView.translatesAutoresizingMaskIntoConstraints = false
+        decrementButtonView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        decrementButtonView.rightAnchor.constraint(equalTo: counterView.leftAnchor, constant: -16).isActive = true
+        
+        incrementButtonView.translatesAutoresizingMaskIntoConstraints = false
+        incrementButtonView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        incrementButtonView.leftAnchor.constraint(equalTo: counterView.rightAnchor, constant: 16).isActive = true
+        
+        detailButtonView.translatesAutoresizingMaskIntoConstraints = false
+        detailButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        detailButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
     }
     
-    private func presentDetail() {
+    private func presentDetail(param: Int32) {
         let detailViewController = DetailViewController()
+        detailViewController.param = param
         present(detailViewController, animated: true, completion: nil)
     }
     
-    @objc private func buttonTap() {
-        testViewModel.obtainEvent(viewEvent: TestEvent.OpenDetail())
+    @objc private func decrementTap() {
+        testViewModel.obtainEvent(viewEvent: TestEvent.DecrementClick())
     }
+    
+    @objc private func incrementTap() {
+        testViewModel.obtainEvent(viewEvent: TestEvent.IncrementClick())
+    }
+    
+    @objc private func buttonTap() {
+        testViewModel.obtainEvent(viewEvent: TestEvent.DetailClick())
+    }
+    
 }
 
