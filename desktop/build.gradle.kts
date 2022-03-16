@@ -33,7 +33,7 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "ru.leroymerlin.mpp.kviewmodel_demo.MainKt"
+        mainClass = "com.adeo.kviewmodel.demo.MainKt"
 
         nativeDistributions {
             targetFormats(

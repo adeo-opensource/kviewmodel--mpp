@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ru.leroymerlin.mpp.kviewmodel_demo">
+    package="com.adeo.kviewmodel.example">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Odyssey"
         tools:replace="android:theme">
         <activity
-            android:name="ru.leroymerlin.mpp.kviewmodel_demo.MainActivity"
+            android:name="com.adeo.kviewmodel.example.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
