@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val version = "0.5"
+    const val version = "0.6"
     const val group = "com.adeo"
 
     object JetBrains {
