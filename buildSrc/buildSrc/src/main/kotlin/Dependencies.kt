@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val version = "0.5"
+    const val version = "0.6"
     const val group = "com.adeo"
 
     object JetBrains {
@@ -10,18 +10,18 @@ object Dependencies {
             const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$VERSION"
             const val testCommon = "org.jetbrains.kotlin:kotlin-test-common:$VERSION"
             const val testJunit = "org.jetbrains.kotlin:kotlin-test-junit:$VERSION"
-            const val testAnnotationsCommon =
-                "org.jetbrains.kotlin:kotlin-test-annotations-common:$VERSION"
-
-            private const val coroutinesVersion = "1.6.0-native-mt"
-            const val coroutines =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+            const val testAnnotationsCommon = "org.jetbrains.kotlin:kotlin-test-annotations-common:$VERSION"
         }
 
         object Compose {
             // __LATEST_COMPOSE_RELEASE_VERSION__
             private const val VERSION = "1.2.0-alpha01-dev620"
             const val gradlePlugin = "org.jetbrains.compose:compose-gradle-plugin:$VERSION"
+        }
+
+        object Coroutines {
+            private const val VERSION = "1.6.0-native-mt"
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$VERSION"
         }
     }
 

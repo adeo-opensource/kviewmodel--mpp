@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-compose-setup")
+    id("multiplatform-setup")
     id("android-setup")
     id("maven-publish")
     id("convention.publication")
@@ -10,14 +10,18 @@ version = Dependencies.version
 
 kotlin {
     android {
-        publishLibraryVariants("release", "debug")
+        publishAllLibraryVariants()
     }
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(Dependencies.JetBrains.Kotlin.coroutines)
+                implementation(Dependencies.JetBrains.Coroutines.core)
             }
         }
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.freeCompilerArgs += "-Xexplicit-api=strict"
     }
 }

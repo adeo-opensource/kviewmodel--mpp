@@ -33,6 +33,7 @@ captures/
 *.iml
 .idea/tasks.xml
 .idea
+.fleet
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
@@ -266,3 +267,4 @@ Gemfile.lock
 /ios/functions_build_analysis.txtxcodebuild
 
 *.asc
+kotlin-js-store

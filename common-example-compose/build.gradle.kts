@@ -11,7 +11,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(Dependencies.JetBrains.Kotlin.coroutines)
                 implementation(project(":common-example"))
                 implementation(project(":kviewmodel"))
                 implementation(project(":kviewmodel-compose"))

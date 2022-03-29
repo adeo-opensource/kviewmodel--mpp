@@ -1,16 +1,11 @@
-//
-//  DetailViewController.swift
-//  kviewmodel
-//
-//  Created by Алексей Гладков on 14.02.2022.
-//
-
 import UIKit
 import KViewModelShared
 
 class DetailViewController: UIViewController {
     
-    private let detailViewModel = DetailViewModel()
+    var param: Int32!
+    
+    private lazy var detailViewModel = DetailViewModel(param: param)
     
     private lazy var titleView: UILabel = {
         let titleView = UILabel()
@@ -19,21 +14,17 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         renderUI()
         
         detailViewModel.viewStates().watch { [weak self] viewState in
-            guard let self = self, let viewState = viewState else { return }
+            guard let self = self else { return }
             
-            self.titleView.text = viewState.testData
+            self.titleView.text = viewState.text
         }
-        
-        detailViewModel.obtainEvent(viewEvent: .Launch())
     }
     
     deinit {
-        print("Detail view controller de inited")
+        print("Detail view controller deinited")
     }
     
     private func renderUI() {
@@ -41,8 +32,7 @@ class DetailViewController: UIViewController {
         view.addSubview(titleView)
         
         titleView.translatesAutoresizingMaskIntoConstraints = false
-        titleView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
-        titleView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        titleView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        titleView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }

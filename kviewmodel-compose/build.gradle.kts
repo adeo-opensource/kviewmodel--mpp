@@ -10,14 +10,18 @@ version = Dependencies.version
 
 kotlin {
     android {
-        publishLibraryVariants("release", "debug")
+        publishAllLibraryVariants()
     }
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":kviewmodel"))
+                api(project(":kviewmodel"))
             }
         }
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.freeCompilerArgs += "-Xexplicit-api=strict"
     }
 }

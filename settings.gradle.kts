@@ -1,3 +1,5 @@
+rootProject.name = "kviewmodel"
+
 include(
     ":kviewmodel",
     ":kviewmodel-compose",
@@ -10,6 +12,3 @@ include(
     ":android",
     ":desktop"
 )
-
-//includeBuild("convention-plugins")
-rootProject.name = "kviewmodel"
