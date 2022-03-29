@@ -42,4 +42,10 @@ object Dependencies {
             const val activityCompose = "androidx.activity:activity-compose:1.3.0-beta02"
         }
     }
+
+    object Odyssey {
+        private const val VERSION = "0.4.0"
+        const val core = "io.github.alexgladkov:odyssey-core:$VERSION"
+        const val compose = "io.github.alexgladkov:odyssey-compose:$VERSION"
+    }
 }
