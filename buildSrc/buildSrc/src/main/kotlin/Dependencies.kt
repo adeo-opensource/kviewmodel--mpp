@@ -1,6 +1,6 @@
 object Dependencies {
 
-    const val version = "0.6"
+    const val version = "0.7"
     const val group = "com.adeo"
 
     object JetBrains {
@@ -28,7 +28,7 @@ object Dependencies {
     object Android {
         object Tools {
             object Build {
-                const val gradlePlugin = "com.android.tools.build:gradle:4.1.0"
+                const val gradlePlugin = "com.android.tools.build:gradle:7.0.4"
             }
         }
     }
