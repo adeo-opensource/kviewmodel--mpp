@@ -84,11 +84,8 @@ publishing {
 
 // Signing artifacts. Signing.* extra properties values will be used
 signing {
-    gradle.taskGraph.whenReady {
-
-        val isPublishNotToMavenLocal = this.allTasks.none { it.name.endsWith("MavenLocal") }
-
-        isRequired = isPublishNotToMavenLocal
-        sign(publishing.publications)
+    setRequired {
+        gradle.taskGraph.allTasks.none { it.name.endsWith("MavenLocal") }
     }
+    sign(publishing.publications)
 }
