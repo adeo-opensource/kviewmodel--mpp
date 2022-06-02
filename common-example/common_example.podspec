@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'common_example'
-    spec.version                  = '0.7'
+    spec.version                  = '0.7.1'
     spec.homepage                 = 'https://github.com/adeo/kviewmodel--mpp'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''
