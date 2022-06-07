@@ -4,4 +4,5 @@ sealed class TestEvent {
     object IncrementClick : TestEvent()
     object DecrementClick : TestEvent()
     object DetailClick : TestEvent()
+    object ActionInvoked : TestEvent()
 }

@@ -22,6 +22,7 @@ class TestViewModel: BaseSharedViewModel<TestViewState, TestAction, TestEvent>(i
         is TestEvent.IncrementClick -> updateCounter(+1)
         is TestEvent.DecrementClick -> updateCounter(-1)
         is TestEvent.DetailClick -> viewAction = TestAction.OpenDetail(viewState.counter)
+        is TestEvent.ActionInvoked -> viewAction = null
     }
 
     private fun fetchSomeInitialData() {

@@ -1,0 +1,10 @@
+source 'git@github.com:adeo/CocoaPods-Specs.git' # Production releases
+source 'git@github.com:adeo/CocoaPods-Specs-Snapshot.git' # Snapshot releases
+source 'https://cdn.cocoapods.org/'
+
+platform :ios, '14.0'
+use_frameworks!
+
+target 'kviewmodel-swiftui' do
+  pod 'common_example', :path => '../../common-example'
+end
