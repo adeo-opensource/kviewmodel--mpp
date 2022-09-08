@@ -34,6 +34,9 @@ fun TestScreen() {
                 // screen switching depends on the navigation library
                 // DetailScreen(action.param)
             }
+            else -> {
+
+            }
         }
     }
 }
