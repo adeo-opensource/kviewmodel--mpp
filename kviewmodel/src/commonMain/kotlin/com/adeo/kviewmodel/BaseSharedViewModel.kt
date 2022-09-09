@@ -1,7 +1,9 @@
 package com.adeo.kviewmodel
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 public abstract class BaseSharedViewModel<State : Any, Action, Event>(initialState: State) : KViewModel() {
 
@@ -27,4 +29,10 @@ public abstract class BaseSharedViewModel<State : Any, Action, Event>(initialSta
 
     public abstract fun obtainEvent(viewEvent: Event)
 
+    /**
+     * Convenient method to perform work in [viewModelScope] scope.
+     */
+    protected fun withViewModelScope(block: suspend CoroutineScope.() -> Unit) {
+        viewModelScope.launch(block = block)
+    }
 }
