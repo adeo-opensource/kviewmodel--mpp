@@ -1,5 +1,3 @@
-import org.apache.tools.ant.taskdefs.condition.Os
-
 plugins {
     `kotlin-dsl`
 }
@@ -15,7 +13,7 @@ dependencies {
     implementation(Dependencies.JetBrains.Compose.gradlePlugin)
     implementation(Dependencies.JetBrains.Kotlin.gradlePlugin)
     implementation(Dependencies.Android.Tools.Build.gradlePlugin)
-    implementation("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.20")
+    implementation("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.23")
 }
 
 val rootDirProject = file("../")

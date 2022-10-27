@@ -18,7 +18,6 @@ kotlin {
         named("jsMain") {
             dependencies {
                 implementation(compose.runtime)
-                implementation(compose.web.widgets)
             }
         }
     }
