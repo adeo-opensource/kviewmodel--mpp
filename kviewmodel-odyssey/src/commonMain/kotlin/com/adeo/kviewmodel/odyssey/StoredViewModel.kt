@@ -12,7 +12,7 @@ public inline fun <reified T : KViewModel> StoredViewModel(
     noinline content: @Composable (T) -> Unit
 ) {
     val currentScreen = LocalRootController.current.currentScreen
-    val screenKey = currentScreen.value.screen.key
+    val screenKey = currentScreen.value?.screen?.key ?: return
     val viewModel = remember { ViewModelStore.getOrPut(screenKey, factory) }
     content(viewModel)
 }
