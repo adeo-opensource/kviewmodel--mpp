@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 32
+        targetSdk = 33
     }
 
     compileOptions {
@@ -16,8 +16,8 @@ android {
     }
 
     packagingOptions {
-        pickFirst("lib/x86_64/libjsc.so")
-        pickFirst("lib/arm64-v8a/libjsc.so")
+        jniLibs.pickFirsts.add("lib/x86_64/libjsc.so")
+        jniLibs.pickFirsts.add("lib/arm64-v8a/libjsc.so")
     }
 
     sourceSets {
