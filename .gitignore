@@ -265,6 +265,7 @@ Gemfile.lock
 /projectFilesBackup/.idea/workspace.xml
 /ios/functions_build_analysis.txt
 /ios/functions_build_analysis.txtxcodebuild
+common-example/common_example.podspec
 
 *.asc
 kotlin-js-store
