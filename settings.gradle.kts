@@ -7,6 +7,7 @@ include(
 
     ":common-example-compose",
     ":common-example",
+    ":kviewmodel-jetpack",
 
     ":web",
     ":android",
