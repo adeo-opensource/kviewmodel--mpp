@@ -73,6 +73,35 @@ ViewModel(factory = { TestViewModel() }) { viewModel ->
 }
 ```
 
+#### Custom ViewModel's exception handlers 
+
+Shared exception handlers (for all ViewModels)
+
+```kotlin
+class App: Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        KViewModel.setupSharedExceptionHandler(CoroutineExceptionHandler { _, throwable ->
+            // There is you can log common exceptions for all ViewModels
+        })
+    }
+}
+```
+
+Single exception handlers (for only current ViewModel)
+
+```kotlin
+class TestViewModel: BaseSharedViewModel<TestViewState, TestAction, TestEvent>(initialState = TestViewState()) {
+    
+    override fun getCoroutineExceptionHandler(): CoroutineExceptionHandler {
+        return CoroutineExceptionHandler { _, throwable ->
+            // There is you can log exceptions only for TestViewModel
+        }
+    }
+}
+```
+
 #### [Odyssey](https://github.com/AlexGladkov/Odyssey) integration
 Allows you to save the ViewModel
 ```kotlin
