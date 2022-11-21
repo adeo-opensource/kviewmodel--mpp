@@ -10,8 +10,8 @@ import kotlin.native.concurrent.ThreadLocal
 
 public abstract class KViewModel {
 
-    private val mainCoroutineExceptionHandler: CoroutineExceptionHandler? by lazy {
-        getCoroutineExceptionHandler() ?: sharedExceptionHandler
+    private val mainCoroutineExceptionHandler: CoroutineExceptionHandler? by lazy(LazyThreadSafetyMode.NONE) {
+        getCoroutineExceptionHandler()
     }
     private val coroutineTags = hashMapOf<String, CoroutineScope>()
     private val mainCoroutineContext = (SupervisorJob() + Dispatchers.Main.immediate).run {
