@@ -75,6 +75,8 @@ ViewModel(factory = { TestViewModel() }) { viewModel ->
 
 #### Custom ViewModel's exception handlers 
 
+> **Note:** When using a custom exception handler you need to take care about crash reporting
+
 Shared exception handlers (for all ViewModels)
 
 ```kotlin
