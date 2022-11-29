@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -5,6 +7,7 @@ plugins {
 }
 
 android {
+    namespace = "com.adeo.kviewmodel.example"
     compileSdk = 33
 
     defaultConfig {
@@ -22,15 +25,15 @@ android {
     }
 
     packagingOptions {
-        exclude("META-INF/*")
+        resources.excludes.add("META-INF/*")
     }
 }
 
 dependencies {
     implementation(compose.material)
 
-    implementation(project(":common-example"))
-    implementation(project(":common-example-compose"))
-    implementation(Dependencies.AndroidX.AppCompat.appCompat)
-    implementation(Dependencies.AndroidX.Activity.activityCompose)
+    implementation(projects.commonExample)
+    implementation(projects.commonExampleCompose)
+    implementation(libs.android.appcompat)
+    implementation(libs.android.activity.compose)
 }

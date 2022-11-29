@@ -1,12 +1,12 @@
 plugins {
     id("multiplatform-compose-setup")
     id("android-setup")
-    id("maven-publish")
-    id("convention.publication")
+    id("com.vanniktech.maven.publish")
 }
 
-group = Dependencies.group
-version = Dependencies.version
+android {
+    namespace = "com.adeo.kviewmodel.compose"
+}
 
 kotlin {
     android {
@@ -16,7 +16,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":kviewmodel"))
+                api(projects.kviewmodel)
             }
         }
     }

@@ -1,12 +1,12 @@
 plugins {
     id("multiplatform-compose-setup")
     id("android-setup")
-    id("maven-publish")
-    id("convention.publication")
+    id("com.vanniktech.maven.publish")
 }
 
-group = Dependencies.group
-version = Dependencies.version
+android {
+    namespace = "com.adeo.kviewmodel.odyssey"
+}
 
 kotlin {
     android {
@@ -16,9 +16,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":kviewmodel"))
-                implementation(Dependencies.Odyssey.core)
-                implementation(Dependencies.Odyssey.compose)
+                api(projects.kviewmodel)
+                implementation(libs.odyssey.core)
+                implementation(libs.odyssey.compose)
             }
         }
     }

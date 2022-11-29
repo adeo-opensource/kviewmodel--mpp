@@ -1,12 +1,12 @@
 plugins {
     id("multiplatform-setup")
     id("android-setup")
-    id("maven-publish")
-    id("convention.publication")
+    id("com.vanniktech.maven.publish")
 }
 
-group = Dependencies.group
-version = Dependencies.version
+android {
+    namespace = "com.adeo.kviewmodel"
+}
 
 kotlin {
     android {
@@ -16,7 +16,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(Dependencies.JetBrains.Coroutines.core)
+                implementation(libs.coroutines.core)
             }
         }
     }

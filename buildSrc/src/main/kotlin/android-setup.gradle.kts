@@ -19,11 +19,4 @@ android {
         jniLibs.pickFirsts.add("lib/x86_64/libjsc.so")
         jniLibs.pickFirsts.add("lib/arm64-v8a/libjsc.so")
     }
-
-    sourceSets {
-        named("main") {
-            manifest.srcFile("src/androidMain/AndroidManifest.xml")
-            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
-        }
-    }
 }

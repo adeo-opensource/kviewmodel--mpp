@@ -1,21 +1,14 @@
-plugins {
-    `kotlin-dsl`
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-        maven("https://jitpack.io")
-        maven("https://plugins.gradle.org/m2/")
-    }
-}
-
 buildscript {
-    val kotlinVersion = "1.7.10"
+    repositories {
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath(libs.plugin.android)
+        classpath(libs.plugin.kotlin)
+        classpath(libs.plugin.publish.maven)
+        classpath(libs.plugin.multiplatform.compose)
     }
 }

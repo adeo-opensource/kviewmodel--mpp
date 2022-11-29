@@ -1,14 +1,16 @@
-rootProject.name = "kviewmodel"
+@file:Suppress("UnstableApiUsage")
 
-include(
-    ":kviewmodel",
-    ":kviewmodel-compose",
-    ":kviewmodel-odyssey",
+enableFeaturePreview("VERSION_CATALOGS")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-    ":common-example-compose",
-    ":common-example",
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    }
+}
 
-    ":web",
-    ":android",
-    ":desktop"
-)
+include(":kviewmodel", ":kviewmodel-compose", ":kviewmodel-odyssey")
+include(":common-example-compose", ":common-example")
+include(":web", ":android", ":desktop")

@@ -1,0 +1,22 @@
+[versions]
+plugin-android = "7.3.0"
+plugin-publish-maven = "0.22.0"
+plugin-multiplatform-compose = "1.2.1"
+
+kotlin = "1.7.20"
+coroutines = "1.6.4"
+odyssey = "1.0.1"
+android-appcompat = "1.5.1"
+android-activity-compose = "1.6.1"
+
+[libraries]
+plugin-android = { module = "com.android.tools.build:gradle", version.ref = "plugin-android" }
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-publish-maven = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "plugin-publish-maven" }
+plugin-multiplatform-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "plugin-multiplatform-compose" }
+
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+android-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "android-appcompat" }
+android-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "android-activity-compose" }
+odyssey-core = { module = "io.github.alexgladkov:odyssey-core", version.ref = "odyssey" }
+odyssey-compose = { module = "io.github.alexgladkov:odyssey-compose", version.ref = "odyssey" }
