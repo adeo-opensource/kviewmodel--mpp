@@ -1,34 +1,10 @@
-import org.jetbrains.compose.compose
-
 plugins {
-    kotlin("multiplatform")
+    kotlin("jvm")
     id("org.jetbrains.compose")
 }
 
-kotlin {
-    jvm {
-        withJava()
-    }
-
-    sourceSets {
-        commonMain {
-            dependencies {
-
-            }
-        }
-
-        named("jvmMain") {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
-        }
-
-        named("jvmTest") {
-            dependencies {
-                implementation("junit:junit:4.12")
-            }
-        }
-    }
+dependencies {
+    implementation(compose.desktop.currentOs)
 }
 
 compose.desktop {
