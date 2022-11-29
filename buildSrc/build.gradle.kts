@@ -3,21 +3,13 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
+    gradlePluginPortal()
     google()
     mavenCentral()
-    maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
 dependencies {
-    implementation(Dependencies.JetBrains.Compose.gradlePlugin)
-    implementation(Dependencies.JetBrains.Kotlin.gradlePlugin)
-    implementation(Dependencies.Android.Tools.Build.gradlePlugin)
-    implementation("org.jfrog.buildinfo:build-info-extractor-gradle:4.24.23")
-}
-
-val rootDirProject = file("../")
-
-kotlin {
-    sourceSets.getByName("main").kotlin.srcDir("buildSrc/src/main/kotlin")
+    implementation(libs.plugin.android)
+    implementation(libs.plugin.kotlin)
+    implementation(libs.plugin.multiplatform.compose)
 }

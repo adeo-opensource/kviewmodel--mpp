@@ -16,7 +16,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(Dependencies.JetBrains.Coroutines.core)
+                implementation(libs.coroutines.core)
             }
         }
     }

@@ -16,9 +16,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":kviewmodel"))
-                implementation(Dependencies.Odyssey.core)
-                implementation(Dependencies.Odyssey.compose)
+                api(projects.kviewmodel)
+                implementation(libs.odyssey.core)
+                implementation(libs.odyssey.compose)
             }
         }
     }

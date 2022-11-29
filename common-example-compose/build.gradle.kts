@@ -11,9 +11,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":common-example"))
-                implementation(project(":kviewmodel"))
-                implementation(project(":kviewmodel-compose"))
+                implementation(projects.commonExample)
+                implementation(projects.kviewmodel)
+                implementation(projects.kviewmodelCompose)
             }
         }
     }

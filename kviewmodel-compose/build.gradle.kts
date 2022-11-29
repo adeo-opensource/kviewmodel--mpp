@@ -16,7 +16,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":kviewmodel"))
+                api(projects.kviewmodel)
             }
         }
     }

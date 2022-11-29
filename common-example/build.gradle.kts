@@ -22,14 +22,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":kviewmodel"))
-                implementation(Dependencies.JetBrains.Coroutines.core)
-            }
-        }
-
-        val uikitMain by getting {
-            dependencies {
-                api(project(":kviewmodel"))
+                implementation(projects.kviewmodel)
+                implementation(libs.coroutines.core)
             }
         }
     }
