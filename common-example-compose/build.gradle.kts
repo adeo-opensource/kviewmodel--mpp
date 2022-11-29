@@ -3,10 +3,12 @@ plugins {
     id("android-setup")
 }
 
+android {
+    namespace = "com.adeo.kviewmodel.example.compose"
+}
+
 kotlin {
-    android {
-        publishLibraryVariants("release", "debug")
-    }
+    android()
 
     sourceSets {
         commonMain {

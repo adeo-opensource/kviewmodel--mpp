@@ -5,8 +5,9 @@ plugins {
     id("convention.publication")
 }
 
-group = Dependencies.group
-version = Dependencies.version
+android {
+    namespace = "com.adeo.kviewmodel"
+}
 
 kotlin {
     android {

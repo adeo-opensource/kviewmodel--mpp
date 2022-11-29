@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -5,6 +7,7 @@ plugins {
 }
 
 android {
+    namespace = "com.adeo.kviewmodel.example"
     compileSdk = 33
 
     defaultConfig {
@@ -22,7 +25,7 @@ android {
     }
 
     packagingOptions {
-        exclude("META-INF/*")
+        resources.excludes.add("META-INF/*")
     }
 }
 

@@ -4,7 +4,9 @@ plugins {
     kotlin("native.cocoapods")
 }
 
-version = Dependencies.version
+android {
+    namespace = "com.adeo.kviewmodel.example.common"
+}
 
 kotlin {
     cocoapods {
