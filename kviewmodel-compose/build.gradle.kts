@@ -1,8 +1,7 @@
 plugins {
     id("multiplatform-compose-setup")
     id("android-setup")
-    id("maven-publish")
-    id("convention.publication")
+    id("com.vanniktech.maven.publish")
 }
 
 android {
