@@ -34,32 +34,19 @@ kotlin {
             }
         }
 
-        val iosMain by creating {
+        val macosX64Main by getting
+        val macosArm64Main by getting
+        val uikitX64Main by getting
+        val uikitArm64Main by getting
+        val iosSimulatorArm64Main by getting
+
+        val darwinMain by creating {
             dependsOn(commonMain)
-        }
-
-        val macosMain by creating {
-            dependsOn(iosMain)
-        }
-        val macosX64Main by getting {
-            dependsOn(macosMain)
-        }
-        val macosArm64Main by getting {
-            dependsOn(macosMain)
-        }
-
-        val uikitMain by creating {
-            dependsOn(iosMain)
-        }
-        val uikitX64Main by getting {
-            dependsOn(uikitMain)
-        }
-        val uikitArm64Main by getting {
-            dependsOn(uikitMain)
-        }
-
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
+            macosX64Main.dependsOn(this)
+            macosArm64Main.dependsOn(this)
+            uikitX64Main.dependsOn(this)
+            uikitArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 
