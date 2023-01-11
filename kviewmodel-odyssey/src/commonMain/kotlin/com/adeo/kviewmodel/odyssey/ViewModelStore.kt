@@ -6,24 +6,19 @@ import com.adeo.kviewmodel.KViewModel
 public object ViewModelStore {
 
     @PublishedApi
-    internal val viewModels: MutableMap<String, KViewModel> = ConcurrentHashMap()
+    internal val abstractContainer: AbstractContainer = AbstractContainer()
 
     @PublishedApi
     internal inline fun <reified T : KViewModel> getOrPut(
         screenKey: String,
-        factory: @DisallowComposableCalls () -> T
+        noinline factory: @DisallowComposableCalls () -> T
     ): T {
-        val key = "${screenKey}_${T::class.qualifiedName}"
-        return viewModels.getOrPut(key, factory) as T
+        val key = "${screenKey}_${T::class.simpleName}"
+        return abstractContainer.getOrPut(key, factory) as T
     }
 
     public fun remove(screenKey: String) {
-        viewModels.forEach {
-            if (it.key.startsWith(screenKey)) {
-                it.value.clear()
-                viewModels -= it.key
-            }
-        }
+        abstractContainer.remove(screenKey)
     }
 
 }
