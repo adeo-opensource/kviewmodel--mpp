@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-setup")
+    id("example-setup")
     id("android-setup")
     kotlin("native.cocoapods")
 }

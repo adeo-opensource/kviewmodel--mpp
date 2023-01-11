@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-compose-setup")
+    id("example-setup")
     id("android-setup")
 }
 

@@ -11,6 +11,8 @@ kotlin {
         browser()
     }
 
+    macosX64()
+    macosArm64()
     iosX64("uikitX64")
     iosArm64("uikitArm64")
     iosSimulatorArm64("uikitSimulatorArm64")
@@ -18,8 +20,22 @@ kotlin {
     sourceSets {
         val commonMain by getting
 
-        val uikitMain by creating {
+        val iosMain by creating {
             dependsOn(commonMain)
+        }
+
+        val macosMain by creating {
+            dependsOn(iosMain)
+        }
+        val macosX64Main by getting {
+            dependsOn(macosMain)
+        }
+        val macosArm64Main by getting {
+            dependsOn(macosMain)
+        }
+
+        val uikitMain by creating {
+            dependsOn(iosMain)
         }
         val uikitX64Main by getting {
             dependsOn(uikitMain)
@@ -28,7 +44,7 @@ kotlin {
             dependsOn(uikitMain)
         }
         val uikitSimulatorArm64Main by getting {
-            dependsOn(uikitMain)
+            dependsOn(iosMain)
         }
     }
 
