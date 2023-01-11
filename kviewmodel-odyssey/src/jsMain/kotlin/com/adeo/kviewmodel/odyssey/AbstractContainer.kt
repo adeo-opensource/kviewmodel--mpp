@@ -1,16 +1,19 @@
 package com.adeo.kviewmodel.odyssey
 
 import com.adeo.kviewmodel.KViewModel
+import kotlinx.atomicfu.locks.SynchronizedObject
 
-public actual class AbstractContainer {
+public actual class AbstractContainer : SynchronizedObject() {
 
     private val container = HashMap<String, KViewModel>()
 
     public actual fun remove(screenKey: String) {
-        container.forEach {
-            if (it.key.startsWith(screenKey)) {
-                it.value.clear()
-                container -= it.key
+        kotlinx.atomicfu.locks.synchronized(this) {
+            container.forEach {
+                if (it.key.startsWith(screenKey)) {
+                    it.value.clear()
+                    container -= it.key
+                }
             }
         }
     }
