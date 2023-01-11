@@ -1,5 +1,5 @@
 plugins {
-    id("multiplatform-compose-setup")
+    id("multiplatform-setup")
     id("android-setup")
     id("com.vanniktech.maven.publish")
 }

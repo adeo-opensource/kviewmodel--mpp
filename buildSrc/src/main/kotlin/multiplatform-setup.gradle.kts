@@ -1,38 +1,24 @@
-import org.jetbrains.compose.compose
-
 plugins {
     id("com.android.library")
     id("kotlin-multiplatform")
-    id("org.jetbrains.compose")
 }
 
 kotlin {
     jvm("desktop")
     android()
+
     js(IR) {
         browser()
-        binaries.executable()
     }
 
     macosX64()
     macosArm64()
     iosX64("uikitX64")
     iosArm64("uikitArm64")
-    iosSimulatorArm64()
+    iosSimulatorArm64("uikitSimulatorArm64")
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-            }
-        }
-        val desktopMain by getting {
-            dependencies {
-                implementation(compose.desktop.common)
-            }
-        }
+        val commonMain by getting
 
         val iosMain by creating {
             dependsOn(commonMain)
@@ -57,8 +43,7 @@ kotlin {
         val uikitArm64Main by getting {
             dependsOn(uikitMain)
         }
-
-        val iosSimulatorArm64Main by getting {
+        val uikitSimulatorArm64Main by getting {
             dependsOn(iosMain)
         }
     }
