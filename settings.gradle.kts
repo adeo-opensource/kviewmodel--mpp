@@ -13,4 +13,4 @@ dependencyResolutionManagement {
 
 include(":kviewmodel", ":kviewmodel-compose", ":kviewmodel-odyssey")
 include(":common-example-compose", ":common-example")
-include(":web", ":android", ":desktop")
+include(":android", ":desktop")
