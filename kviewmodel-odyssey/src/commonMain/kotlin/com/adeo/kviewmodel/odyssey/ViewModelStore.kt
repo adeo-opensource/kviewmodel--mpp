@@ -10,7 +10,7 @@ import kotlinx.coroutines.internal.synchronized
 public object ViewModelStore : SynchronizedObject() {
 
     @PublishedApi
-    internal val viewModelStore = HashMap<String, KViewModel>()
+    internal val viewModelStore: ConcurrentHashMap<String, KViewModel> = ConcurrentHashMap()
 
     @PublishedApi
     internal inline fun <reified T : KViewModel> getOrPut(
