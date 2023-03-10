@@ -2,9 +2,6 @@ package com.adeo.kviewmodel.odyssey
 
 import androidx.compose.runtime.DisallowComposableCalls
 import com.adeo.kviewmodel.KViewModel
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.internal.SynchronizedObject
-import kotlinx.coroutines.internal.synchronized
 
 public object ViewModelStore {
 
@@ -16,7 +13,7 @@ public object ViewModelStore {
         screenKey: String,
         factory: @DisallowComposableCalls () -> T
     ): T {
-        val key = "${screenKey}_${T::class.simpleName}"
+        val key = "${screenKey}_${T::class.name}"
         return viewModelStore.getOrPut(key, factory) as T
     }
 
