@@ -1,5 +1,5 @@
 plugins {
-    id("example-setup")
+    id("multiplatform-setup")
     id("android-setup")
     kotlin("native.cocoapods")
 }
@@ -10,7 +10,7 @@ android {
 
 kotlin {
     cocoapods {
-        summary = "KViewModel iOS Example"
+        summary = "KViewModel Apple Example"
         homepage = "https://github.com/adeo/kviewmodel--mpp"
         ios.deploymentTarget = "14.0"
         version = "1.0"
