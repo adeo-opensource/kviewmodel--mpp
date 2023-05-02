@@ -1,4 +1,4 @@
-package ui
+package com.adeo.kviewmodel
 
 import com.adeo.kviewmodel.KViewModel
 import com.adeo.kviewmodel.WrappedSharedFlow
